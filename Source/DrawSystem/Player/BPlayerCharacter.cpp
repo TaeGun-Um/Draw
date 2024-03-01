@@ -202,3 +202,56 @@ void ABPlayerCharacter::MoveUpdate(float _DeltaTime)
 }
 
 void ABPlayerCharacter::MoveExit() {}
+
+//// 인벤토리UI 켜기
+//void ABInventoryActor::OpenInventory()
+//{
+//	Timeline.SetNewTime(0);		// SubCase의 위치를 조정
+//	CaseMesh->PlayAnimation(OpenAnim, false);	// 애니메이션 재생
+//	HUD->SetQuickSlotVisible(false);
+//	Widget->WidgetOn();
+//	Widget->SetMoney(Money);
+//	Subsystem->AddMappingContext(DefaultMappingContext, 1);	// 매핑컨텍스트 추가해서 조작 할 수 있게 만듬
+//	Controller->SetViewTarget(this);	// 뷰타겟을 이 엑터로 지정
+//	FInputModeGameAndUI InputMode;
+//	InputMode.SetHideCursorDuringCapture(false);
+//	Controller->SetInputMode(InputMode);
+//	Controller->SetShowMouseCursor(true);
+//	FSMComp->ChangeState(TO_KEY(EInventoryState::Default));
+//	Inventory->Open();
+//
+//	Player->DisableInput(Controller);
+//	Player->CustomTimeDilation = 0;
+//	TArray<AActor*> Actors;
+//	UGameplayStatics::GetAllActorsOfClass(this, ABMonsterBase::StaticClass(), Actors);
+//	for (AActor* Actor : Actors)
+//	{
+//		Actor->CustomTimeDilation = 0;
+//	}
+//	UGameplayStatics::PlaySound2D(this, Sound_InventoryOpen);
+//}
+//
+//void ABInventoryActor::CloseInventory()
+//{
+//	// 인벤토리를 닫는다
+//	// Subslot에 있는 아이템은 버림
+//	Inventory->RemoveAllItemInSubSlot();
+//	Widget->WidgetOff();
+//	Controller->SetViewTarget(UGameplayStatics::GetPlayerPawn(this, 0));	// ViewTarget 전환
+//	Controller->SetInputMode(FInputModeGameOnly());
+//	Controller->SetShowMouseCursor(false);
+//	Subsystem->RemoveMappingContext(DefaultMappingContext);		// MappingContext 제거하여 조작 끔
+//	HUD->QuickSlotUpdate(QuickSlot);
+//	FSMComp->ChangeState(TO_KEY(EInventoryState::Wait));
+//	Inventory->Close();
+//
+//	Player->EnableInput(Controller);
+//	Player->CustomTimeDilation = 1;
+//	TArray<AActor*> Actors;
+//	UGameplayStatics::GetAllActorsOfClass(this, ABMonsterBase::StaticClass(), Actors);
+//	for (AActor* Actor : Actors)
+//	{
+//		Actor->CustomTimeDilation = 1;
+//	}
+//	UGameplayStatics::PlaySound2D(this, Sound_InventoryClose);
+//}
