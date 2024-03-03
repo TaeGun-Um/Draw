@@ -29,7 +29,7 @@ ABPlayerCharacter::ABPlayerCharacter()
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArmComponent->SetupAttachment(RootComponent);
 	SpringArmComponent->SetRelativeLocation(FVector(0, 70, 90));
-	SpringArmComponent->TargetArmLength = 400;
+	SpringArmComponent->TargetArmLength = 150;
 	SpringArmComponent->bUsePawnControlRotation = true;
 
 	// 카메라 컴포넌트 생성 및 부착
